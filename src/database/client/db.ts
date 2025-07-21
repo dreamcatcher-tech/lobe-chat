@@ -307,6 +307,7 @@ export class DatabaseManager {
   createProxy(): DrizzleInstance {
     return new Proxy({} as DrizzleInstance, {
       get: (target, prop) => {
+        console.log('get', prop);
         return this.db[prop as keyof DrizzleInstance];
       },
     });
