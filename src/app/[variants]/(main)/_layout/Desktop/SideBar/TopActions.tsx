@@ -1,5 +1,14 @@
 import { ActionIcon, ActionIconProps } from '@lobehub/ui';
-import { Compass, FolderClosed, MessageSquare, Palette } from 'lucide-react';
+import {
+  BotMessageSquare,
+  Compass,
+  FolderClosed,
+  HeartCrack,
+  MessagesSquare,
+  Orbit,
+  Palette,
+  User,
+} from 'lucide-react';
 import Link from 'next/link';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +29,23 @@ export interface TopActionProps {
   isPinned?: boolean | null;
   tab?: SidebarTabKey;
 }
+
+// chat can bring in the current context unless you hold alt
+// add a play currency in there right now
+// click on a button to bring in the current context with you, so no context
+// drop
+
+/**
+ * Assistant Chats
+ * Repos
+ *
+ * Discover (people, agents, napps)
+ * Stucks
+ * Value (ambient attribution, trading)
+ *
+ * Contacts ? connections ? installed or linked agents, people, and napps ?
+ * Agentic chats
+ */
 
 const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
   const { t } = useTranslation('common');
@@ -49,23 +75,13 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
       >
         <ActionIcon
           active={isChatActive}
-          icon={MessageSquare}
+          icon={BotMessageSquare}
           size={ICON_SIZE}
-          title={t('tab.chat')}
+          title={'Assistant Chats'}
           tooltipProps={{ placement: 'right' }}
         />
       </Link>
-      {enableKnowledgeBase && (
-        <Link aria-label={t('tab.files')} href={'/files'}>
-          <ActionIcon
-            active={isFilesActive}
-            icon={FolderClosed}
-            size={ICON_SIZE}
-            title={t('tab.files')}
-            tooltipProps={{ placement: 'right' }}
-          />
-        </Link>
-      )}
+
       <Link aria-label={t('tab.aiImage')} href={'/image'}>
         <ActionIcon
           active={isImageActive}
@@ -75,6 +91,18 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
           tooltipProps={{ placement: 'right' }}
         />
       </Link>
+
+      {enableKnowledgeBase && (
+        <Link aria-label={t('tab.files')} href={'/files'}>
+          <ActionIcon
+            active={isFilesActive}
+            icon={FolderClosed}
+            size={ICON_SIZE}
+            title={'Repos'}
+            tooltipProps={{ placement: 'right' }}
+          />
+        </Link>
+      )}
       {showMarket && (
         <Link aria-label={t('tab.discover')} href={'/discover'}>
           <ActionIcon
@@ -86,6 +114,43 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
           />
         </Link>
       )}
+      <Link aria-label={'Stucks'} href={'/image'}>
+        <ActionIcon
+          active={isImageActive}
+          icon={HeartCrack}
+          size={ICON_SIZE}
+          title={'Stucks'}
+          tooltipProps={{ placement: 'right' }}
+        />
+      </Link>
+      <Link aria-label={t('tab.aiImage')} href={'/image'}>
+        <ActionIcon
+          active={isImageActive}
+          icon={Orbit}
+          size={ICON_SIZE}
+          title={'Economy'}
+          tooltipProps={{ placement: 'right' }}
+        />
+      </Link>
+
+      <Link aria-label={t('tab.aiImage')} href={'/image'}>
+        <ActionIcon
+          active={isImageActive}
+          icon={User}
+          size={ICON_SIZE}
+          title={'Contacts'}
+          tooltipProps={{ placement: 'right' }}
+        />
+      </Link>
+      <Link aria-label={t('tab.aiImage')} href={'/image'}>
+        <ActionIcon
+          active={isImageActive}
+          icon={MessagesSquare}
+          size={ICON_SIZE}
+          title={'Agentic Chats'}
+          tooltipProps={{ placement: 'right' }}
+        />
+      </Link>
     </Flexbox>
   );
 });
