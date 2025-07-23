@@ -114,42 +114,18 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
           />
         </Link>
       )}
-      <Link aria-label={'Stucks'} href={'/image'}>
-        <ActionIcon
-          active={isImageActive}
-          icon={HeartCrack}
-          size={ICON_SIZE}
-          title={'Stucks'}
-          tooltipProps={{ placement: 'right' }}
-        />
+      <Link aria-label={'Stucks'} href={'/stucks'}>
+        <ActionIcon icon={HeartCrack} size={ICON_SIZE} title={'Stucks'} tooltipProps={{ placement: 'right' }} />
       </Link>
-      <Link aria-label={t('tab.aiImage')} href={'/image'}>
-        <ActionIcon
-          active={isImageActive}
-          icon={Orbit}
-          size={ICON_SIZE}
-          title={'Economy'}
-          tooltipProps={{ placement: 'right' }}
-        />
+      <Link aria-label={'Economy'} href={'/economy'}>
+        <ActionIcon icon={Orbit} size={ICON_SIZE} title={'Economy'} tooltipProps={{ placement: 'right' }} />
       </Link>
 
-      <Link aria-label={t('tab.aiImage')} href={'/image'}>
-        <ActionIcon
-          active={isImageActive}
-          icon={User}
-          size={ICON_SIZE}
-          title={'Contacts'}
-          tooltipProps={{ placement: 'right' }}
-        />
+      <Link aria-label={'Contacts'} href={'/contacts'}>
+        <ActionIcon icon={User} size={ICON_SIZE} title={'Contacts'} tooltipProps={{ placement: 'right' }} />
       </Link>
-      <Link aria-label={t('tab.aiImage')} href={'/image'}>
-        <ActionIcon
-          active={isImageActive}
-          icon={MessagesSquare}
-          size={ICON_SIZE}
-          title={'Agentic Chats'}
-          tooltipProps={{ placement: 'right' }}
-        />
+      <Link aria-label={'Agentic Chats'} href={'/agentic-chats'}>
+        <ActionIcon icon={MessagesSquare} size={ICON_SIZE} title={'Agentic Chats'} tooltipProps={{ placement: 'right' }} />
       </Link>
     </Flexbox>
   );
