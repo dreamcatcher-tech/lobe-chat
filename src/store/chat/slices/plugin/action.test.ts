@@ -66,7 +66,7 @@ describe('ChatPluginAction', () => {
           {
             ...toolMessage,
             meta: {
-              avatar: '🤯',
+              avatar: 'https://dreamcatcher.land/img/dreamcatcher.svg',
               backgroundColor: 'rgba(0,0,0,0)',
               description: undefined,
               title: undefined,
