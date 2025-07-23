@@ -226,7 +226,7 @@ describe('chatSelectors', () => {
           content: 'Goodbye World',
           role: 'user',
           meta: {
-            avatar: 'https://dreamcatcher.land/img/dreamcatcher.svg',
+            avatar: DEFAULT_INBOX_AVATAR,
           },
         },
         {
@@ -234,7 +234,7 @@ describe('chatSelectors', () => {
           content: 'Function Message',
           role: 'tool',
           meta: {
-            avatar: 'https://dreamcatcher.land/img/dreamcatcher.svg',
+            avatar: DEFAULT_INBOX_AVATAR,
             backgroundColor: 'rgba(0,0,0,0)',
             description: 'inbox.desc',
             title: 'inbox.title',
