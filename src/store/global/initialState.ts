@@ -7,12 +7,16 @@ import { SessionDefaultGroup } from '@/types/session';
 import { AsyncLocalStorage } from '@/utils/localStorage';
 
 export enum SidebarTabKey {
+  AgenticChats = 'agentic-chats',
   Chat = 'chat',
+  Contacts = 'contacts',
   Discover = 'discover',
+  Economy = 'economy',
   Files = 'files',
   Image = 'image',
   Me = 'me',
   Setting = 'settings',
+  Stucks = 'stucks',
 }
 
 export enum ChatSettingsTabs {

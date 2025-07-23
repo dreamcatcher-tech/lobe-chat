@@ -45,6 +45,15 @@ export const config = {
     '/me',
     '/me(.*)',
 
+    '/stucks',
+    '/stucks(.*)',
+    '/economy',
+    '/economy(.*)',
+    '/contacts',
+    '/contacts(.*)',
+    '/agentic-chats',
+    '/agentic-chats(.*)',
+
     '/login(.*)',
     '/signup(.*)',
     '/next-auth/(.*)',

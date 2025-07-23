@@ -56,6 +56,10 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
   const isFilesActive = tab === SidebarTabKey.Files;
   const isDiscoverActive = tab === SidebarTabKey.Discover;
   const isImageActive = tab === SidebarTabKey.Image;
+  const isAgenticChatsActive = tab === SidebarTabKey.AgenticChats;
+  const isContactsActive = tab === SidebarTabKey.Contacts;
+  const isEconomyActive = tab === SidebarTabKey.Economy;
+  const isStucksActive = tab === SidebarTabKey.Stucks;
 
   return (
     <Flexbox gap={8}>
@@ -115,17 +119,41 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
         </Link>
       )}
       <Link aria-label={'Stucks'} href={'/stucks'}>
-        <ActionIcon icon={HeartCrack} size={ICON_SIZE} title={'Stucks'} tooltipProps={{ placement: 'right' }} />
+        <ActionIcon
+          active={isStucksActive}
+          icon={HeartCrack}
+          size={ICON_SIZE}
+          title={'Stucks'}
+          tooltipProps={{ placement: 'right' }}
+        />
       </Link>
       <Link aria-label={'Economy'} href={'/economy'}>
-        <ActionIcon icon={Orbit} size={ICON_SIZE} title={'Economy'} tooltipProps={{ placement: 'right' }} />
+        <ActionIcon
+          active={isEconomyActive}
+          icon={Orbit}
+          size={ICON_SIZE}
+          title={'Economy'}
+          tooltipProps={{ placement: 'right' }}
+        />
       </Link>
 
       <Link aria-label={'Contacts'} href={'/contacts'}>
-        <ActionIcon icon={User} size={ICON_SIZE} title={'Contacts'} tooltipProps={{ placement: 'right' }} />
+        <ActionIcon
+          active={isContactsActive}
+          icon={User}
+          size={ICON_SIZE}
+          title={'Contacts'}
+          tooltipProps={{ placement: 'right' }}
+        />
       </Link>
       <Link aria-label={'Agentic Chats'} href={'/agentic-chats'}>
-        <ActionIcon icon={MessagesSquare} size={ICON_SIZE} title={'Agentic Chats'} tooltipProps={{ placement: 'right' }} />
+        <ActionIcon
+          active={isAgenticChatsActive}
+          icon={MessagesSquare}
+          size={ICON_SIZE}
+          title={'Agentic Chats'}
+          tooltipProps={{ placement: 'right' }}
+        />
       </Link>
     </Flexbox>
   );

@@ -7,7 +7,7 @@ export const LOBE_CHAT_CLOUD = 'Dreamcatcher Cloud';
 export const BRANDING_NAME = 'Dreamcatcher';
 export const BRANDING_LOGO_URL = 'https://dreamcatcher.land/img/dreamcatcher.svg';
 
-export const ORG_NAME = 'The Dreamcatcher';
+export const ORG_NAME = 'Dreamcatcher';
 
 export const BRANDING_URL = {
   help: undefined,
