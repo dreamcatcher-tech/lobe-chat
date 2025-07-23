@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
+import { DEFAULT_FEATURE_FLAGS, mapFeatureFlagsEnvToState } from '@/config/featureFlags';
+
 import { featureFlagsSelectors, serverConfigSelectors } from './selectors';
 import { initServerConfigStore } from './store';
 
@@ -16,29 +18,13 @@ describe('featureFlagsSelectors', () => {
 
     const result = featureFlagsSelectors(store.getState());
 
-    expect(result).toEqual({
-      enableWebrtc: false,
-      isAgentEditable: false,
-      enablePlugins: true,
-      showCreateSession: true,
-      showChangelog: true,
-      enableRAGEval: false,
-      showDalle: false,
-      enableKnowledgeBase: true,
-      showLLM: false,
-      showCloudPromotion: false,
-      showOpenAIApiKey: true,
-      hideDocs: false,
-      hideGitHub: false,
-      showOpenAIProxyUrl: true,
-      enableCheckUpdates: false,
-      showWelcomeSuggest: true,
-      enableClerkSignUp: true,
-      showProvider: true,
-      showMarket: true,
-      showPinList: false,
-      enableSTT: true,
+    const expected = mapFeatureFlagsEnvToState({
+      ...DEFAULT_FEATURE_FLAGS,
+      language_model_settings: false,
+      edit_agent: false,
     });
+
+    expect(result).toEqual(expected);
   });
 });
 

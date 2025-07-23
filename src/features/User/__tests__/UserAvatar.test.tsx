@@ -1,6 +1,7 @@
 import { act, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
+import { BRANDING_NAME } from '@/const/branding';
 import { DEFAULT_USER_AVATAR_URL } from '@/const/meta';
 import { useUserStore } from '@/store/user';
 
@@ -57,27 +58,27 @@ describe('UserAvatar', () => {
       expect(screen.getByAltText('testuser')).toHaveAttribute('src', DEFAULT_USER_AVATAR_URL);
     });
 
-    it('should show Dreamcatcher and default avatar when the user is not logged in and enable auth', () => {
+    it('should show the app name and default avatar when the user is not logged in and enable auth', () => {
       act(() => {
         useUserStore.setState({ enableAuth: () => true, isSignedIn: false, user: undefined });
       });
 
       render(<UserAvatar />);
-      expect(screen.getByAltText('Dreamcatcher')).toBeInTheDocument();
-      expect(screen.getByAltText('Dreamcatcher')).toHaveAttribute('src', DEFAULT_USER_AVATAR_URL);
+      expect(screen.getByAltText(BRANDING_NAME)).toBeInTheDocument();
+      expect(screen.getByAltText(BRANDING_NAME)).toHaveAttribute('src', DEFAULT_USER_AVATAR_URL);
     });
   });
 
   describe('disable Auth', () => {
-    it('should show Dreamcatcher and default avatar when the user is not logged in and disabled auth', () => {
+    it('should show the app name and default avatar when the user is not logged in and disabled auth', () => {
       enableAuth = false;
       act(() => {
         useUserStore.setState({ enableAuth: () => false, isSignedIn: false, user: undefined });
       });
 
       render(<UserAvatar />);
-      expect(screen.getByAltText('Dreamcatcher')).toBeInTheDocument();
-      expect(screen.getByAltText('Dreamcatcher')).toHaveAttribute('src', DEFAULT_USER_AVATAR_URL);
+      expect(screen.getByAltText(BRANDING_NAME)).toBeInTheDocument();
+      expect(screen.getByAltText(BRANDING_NAME)).toHaveAttribute('src', DEFAULT_USER_AVATAR_URL);
     });
   });
 });
