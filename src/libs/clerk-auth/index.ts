@@ -26,6 +26,9 @@ export class ClerkAuth {
     const clerkAuth = await auth();
     const userId = this.getMappedUserId(clerkAuth.userId);
 
+    console.log('clerkAuth', clerkAuth);
+    console.log('userId', userId);
+
     return { clerkAuth, userId };
   }
 
